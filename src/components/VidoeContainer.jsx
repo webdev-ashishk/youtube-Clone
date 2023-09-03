@@ -4,15 +4,15 @@ import { YOUTUBE_VIDEOS_API } from "../utils/contants";
 
 const VidoeContainer = () => {
   const [videos, setVideos] = useState([]);
-  useEffect(() => {
-    getVideos();
-  }, []);
   async function getVideos() {
     const data = await fetch(YOUTUBE_VIDEOS_API);
     const json = await data.json();
-    // console.log(json.items);
-    setVideos(json.items);
+    setVideos(json?.items);
   }
+
+  useEffect(() => {
+    getVideos();
+  }, []);
   return (
     <div>
       <VideoCard info={videos[0]} />
