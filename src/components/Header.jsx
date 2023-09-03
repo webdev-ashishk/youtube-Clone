@@ -1,19 +1,27 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/appSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu());
+  };
   return (
-    <div className="border-2 border-green-500 grid grid-flow-col shadow-lg m-1 p-2">
+    <div className="grid grid-flow-col shadow-lg mb-10 p-6">
       <div className="flex col-span-1 justify-center ">
         <img
-          className=" h-5 mt-4"
+          onClick={() => toggleMenuHandler()}
+          className=" h-5 mt-4 cursor-pointer"
           src="https://openclipart.org/image/2000px/221605"
           alt="hamburger-manu"
         />
-        <img
-          className="h-14 ml-5"
-          src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500"
-          alt="yt-logo"
-        />
+        <a href="/">
+          <img
+            className="h-14 ml-5"
+            src="https://lh3.googleusercontent.com/3zkP2SYe7yYoKKe47bsNe44yTgb4Ukh__rBbwXwgkjNRe4PykGG409ozBxzxkrubV7zHKjfxq6y9ShogWtMBMPyB3jiNps91LoNH8A=s500"
+            alt="yt-logo"
+          />
+        </a>
       </div>
       <div className="col-span-10 flex justify-center">
         <input
