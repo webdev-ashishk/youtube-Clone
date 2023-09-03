@@ -1,16 +1,16 @@
-import React from "react";
 const VideoCard = ({ info }) => {
-  let { snippet, statistics } = info || [];
+  console.log(info);
+  const { snippet, statistics } = info || [];
   const { channelTitle, title, thumbnails } = snippet || [];
-
+  const { viewCount } = statistics || [];
   return (
     <div>
       <h2>video Cart </h2>
-      <img src={thumbnails?.high?.url} alt="thumbnails" />
+      <img src={thumbnails?.medium?.url} alt="thumbnails" />
       <ul>
-        <li>{snippet?.title}</li>
+        <li>{title}</li>
         <li>{channelTitle}</li>
-        {/* <li>{viewCount}</li> */}
+        <li>{viewCount} views</li>
       </ul>
     </div>
   );
